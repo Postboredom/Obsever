@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class ObjectSaveExample : MonoBehaviour {
 
     CharacterData person;
 
-    void Start () {
+    void Start()
+    {
 
         person = new CharacterData(name);
 

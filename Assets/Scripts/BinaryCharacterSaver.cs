@@ -6,35 +6,27 @@ using UnityEngine;
 
 public class BinaryCharacterSaver : MonoBehaviour {
 
-    public CharacterData characterData;
     const string folderName = "BinaryCharacterData";
     const string fileExtension = ".dat";
 
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.S))
-        {
-            string folderPath = Path.Combine(Application.persistentDataPath, folderName);
-            if(!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
 
-            string dataPath = Path.Combine(folderPath, characterData + fileExtension);
-            SaveCharacter(characterData, dataPath);
-        }
-
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            string[] filePaths = GetFilePaths();
-
-            if(filePaths.Length > 0)
-            {
-                characterData = LoadCharacter(filePaths[0]);
-            }
-        }
 	}
 
-    static void SaveCharacter (CharacterData data, string path)
+    public static void onSave <T>(T Data)
+    {
+        string folderPath = Path.Combine(Application.persistentDataPath, folderName);
+        if (!Directory.Exists(folderPath))
+        {
+            Directory.CreateDirectory(folderPath);
+        }
+
+        string dataPath = Path.Combine(folderPath, Data.ToString() + fileExtension);
+        SaveData(Data, dataPath);
+    }
+
+
+    static void SaveData<T> (T data, string path)
     {
         BinaryFormatter binaryFormatter = new BinaryFormatter();
 
@@ -43,6 +35,25 @@ public class BinaryCharacterSaver : MonoBehaviour {
             binaryFormatter.Serialize(fileStream, data);
         }
     }
+
+    public static CharacterData onLoad(string name)
+    {
+        string[] filePaths = GetFilePaths();
+
+        if (filePaths.Length > 0)
+        {
+            for(int ii = 0; ii < filePaths.Length; ii++)
+            {
+                string sname = Path.Combine(Path.Combine(Application.persistentDataPath, folderName), name + fileExtension);
+                if (filePaths[ii] == sname) 
+                {
+                    return LoadCharacter(filePaths[ii]);
+                }
+            }
+        }
+        return null;
+    }
+
 
     static CharacterData LoadCharacter (string path)
     {
@@ -58,6 +69,6 @@ public class BinaryCharacterSaver : MonoBehaviour {
     {
         string folderPath = Path.Combine(Application.persistentDataPath, folderName);
 
-        return Directory.GetFiles(folderPath, fileExtension);
+        return Directory.GetFiles(folderPath);
     }
 }

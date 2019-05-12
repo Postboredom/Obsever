@@ -123,7 +123,6 @@ GameObject:
   - component: {fileID: 14302720}
   - component: {fileID: 14302719}
   - component: {fileID: 14302718}
-  - component: {fileID: 14302717}
   - component: {fileID: 14302721}
   m_Layer: 0
   m_Name: GameController
@@ -132,17 +131,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &14302717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 14302716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e991348a7935c545bfb4af3e992c665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &14302718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a70800537b1764fa3c7ea4eb36f787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterData: {fileID: 1318136437}
 --- !u!1 &230295383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1038,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1318136431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9435167, y: 1.6028469, z: 0}
+  m_LocalPosition: {x: -7.34, y: 1.6028469, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1117,12 +1104,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1318136431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9916e8a1dfd887a4eb1d5134f4c1237c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e991348a7935c545bfb4af3e992c665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charname: Donald Nigga you better Duck
-  power: flight
-  charge: 123
 --- !u!1 &1472619533
 GameObject:
   m_ObjectHideFlags: 0
